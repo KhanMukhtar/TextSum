@@ -2,9 +2,14 @@ from __future__ import unicode_literals
 from flask import Flask,render_template,url_for,request
 
 from spacy_summarization import text_summarizer
-#from gensim.summarization import summarize
+
 from nltk_summarization import nltk_summarizer
 import time
+import nltk
+nltk.download('wordnet')
+nltk.download('punkt')
+nltk.download('all-corpora')
+nltk.download('stopwords')
 import spacy
 nlp = spacy.load('en_core_web_sm')
 app = Flask(__name__)
@@ -86,9 +91,7 @@ def comparer():
 		final_reading_time = readingTime(rawtext)
 		final_summary_spacy = text_summarizer(rawtext)
 		summary_reading_time = readingTime(final_summary_spacy)
-		# Gensim Summarizer
-		#final_summary_gensim = summarize(rawtext)
-		#summary_reading_time_gensim = readingTime(final_summary_gensim)
+		
 		# NLTK
 		final_summary_nltk = nltk_summarizer(rawtext)
 		summary_reading_time_nltk = readingTime(final_summary_nltk)
