@@ -50,6 +50,6 @@ urlopen==1.0.0
 wasabi==0.8.2
 Werkzeug==1.0.1
 wincertstore==0.2
-nltk.download('wordnet')
-nltk.download('punkt')
-nltk.download('all-corpora')
+wordnet
+punkt
+all-corpora
